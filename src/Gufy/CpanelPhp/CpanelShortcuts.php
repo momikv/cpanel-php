@@ -70,6 +70,30 @@ trait CpanelShortcuts
     {
         return $this->cpanel('Email', 'listforwards', $username);
     }
+    
+     /**
+     */
+    
+    public function listEmailAccountsWithDisk($username)
+    {
+        return $this->cpanel('Email', 'listpopswithdisk', $username);
+    }
+	
+	/**
+     */
+	public function listFTPAccountsWithDisk($username)
+    {
+        return $this->execute_action(3, 'Ftp', 'list_ftp_with_disk', $username);
+    }
+	
+    /**
+     */
+	public function fetchzone_records($username, $domain)
+    {
+        return $this->cpanel('ZoneEdit', 'fetchzone_records', $username, ['domain' => $domain]);
+    }
+    
+    
 
     /**
      * @param $username **cPanel username**
